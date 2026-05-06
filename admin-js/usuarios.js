@@ -1,4 +1,4 @@
-const URL_API = "[https://m1-jose-gregorio-c2pe.vercel.app/api](https://m1-jose-gregorio-c2pe.vercel.app/api)";
+const URL_API = "/api";
 let clientesLocales = [];
 
 document.addEventListener('DOMContentLoaded', () => {
