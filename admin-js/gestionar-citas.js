@@ -166,7 +166,10 @@ async function cambiarEstado(id, nuevoEstado) {
             id, 
             nuevoEstado,
             fecha_actualizacion: ahora,
-            id_admin: idAdminActual 
+            id_admin: idAdminActual,
+            ...(nuevoEstado === 'Finalizada' && {
+                mensaje_notificacion: `Tu cita #${id} ha sido finalizada por el taller. Ya puedes pasar a buscar tu vehículo. ¡Gracias por confiar en nosotros!`
+            })
         };
     }
 
