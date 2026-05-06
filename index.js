@@ -9,7 +9,8 @@ const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY
  
 app.use(cors());
 app.use(express.json());
-app.use(express.static(path.join(__dirname, './')));
+// express.static eliminado: Vercel sirve los archivos estáticos directamente
+// via vercel.json. Usarlo aquí causaba conflictos en producción.
 
 // ==========================================
 // 🔒 FUNCIÓN AUXILIAR: REGISTRAR AUDITORÍA
@@ -1072,7 +1073,13 @@ app.post('/api/admin/entregar-vehiculo', async (req, res) => {
     }
 });
 
-const PORT = 3000;
-app.listen(PORT, () => {
-    console.log(`🚀 Servidor corriendo en http://127.0.0.1:${PORT}`);
-});
+// Para desarrollo local
+if (process.env.NODE_ENV !== 'production') {
+    const PORT = 3000;
+    app.listen(PORT, () => {
+        console.log(`🚀 Servidor corriendo en http://127.0.0.1:${PORT}`);
+    });
+}
+
+// CRÍTICO PARA VERCEL:
+module.exports = app;
