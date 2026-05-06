@@ -1,6 +1,6 @@
 // js/recuperar-clave.js
 
-const URL_API = "[https://m1-jose-gregorio-c2pe.vercel.app/api](https://m1-jose-gregorio-c2pe.vercel.app/api)";
+// Rutas relativas — no se necesita URL base
 
 // Estado compartido entre pasos
 let cedulaActual    = '';
@@ -73,7 +73,7 @@ document.getElementById('btnVerificarCedula').addEventListener('click', async ()
     }
 
     try {
-        const res  = await fetch(`${BASE_URL}/api/recuperar/verificar-cedula`, {
+        const res  = await fetch(`/api/recuperar/verificar-cedula`, {
             method:  'POST',
             headers: { 'Content-Type': 'application/json' },
             body:    JSON.stringify({ cedula })
@@ -116,7 +116,7 @@ document.getElementById('btnVerificarRespuesta').addEventListener('click', async
     }
 
     try {
-        const res  = await fetch(`${BASE_URL}/api/recuperar/verificar-respuesta`, {
+        const res  = await fetch(`/api/recuperar/verificar-respuesta`, {
             method:  'POST',
             headers: { 'Content-Type': 'application/json' },
             body:    JSON.stringify({ cedula: cedulaActual, campoPregunta: preguntaCorrecta, respuesta })
@@ -185,7 +185,7 @@ document.getElementById('btnGuardarClave').addEventListener('click', async () =>
     }
 
     try {
-        const res  = await fetch(`${BASE_URL}/api/recuperar/nueva-clave`, {
+        const res  = await fetch(`/api/recuperar/nueva-clave`, {
             method:  'POST',
             headers: { 'Content-Type': 'application/json' },
             body:    JSON.stringify({ cedula: cedulaActual, nuevaClave })

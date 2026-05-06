@@ -120,7 +120,7 @@ formulario.addEventListener('submit', async (e) => {
 
     // ── ENVÍO AL SERVIDOR ──
     try {
-        const respuesta = await fetch('http://127.0.0.1:3000/api/registro', {
+        const respuesta = await fetch('/api/registro', {
             method:  'POST',
             headers: { 'Content-Type': 'application/json' },
             body:    JSON.stringify(datos)
