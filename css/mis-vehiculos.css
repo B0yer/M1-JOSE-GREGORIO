@@ -1,0 +1,292 @@
+/* ==========================================
+   CONFIGURACIÓN GLOBAL Y CUERPO (BODY)
+   ========================================== */
+body {
+    background-color: #121212; /* Fondo oscuro de la app */
+    margin: 0;                 /* ELIMINA EL ESPACIO DE LOS LADOS */
+    padding: 0;                /* ELIMINA EL ESPACIO INTERNO */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    padding-top: 100px;        /* Espacio para que el header no tape la lista */
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+/* ==========================================
+   CONTENEDOR PRINCIPAL DE LA LISTA
+   ========================================== */
+.contenedor-lista {
+    width: 90%;
+    max-width: 900px;          /* Un poco más ancho para mejorar la tabla */
+    background-color: #1c1c1c; /* Fondo de la tarjeta */
+    border: 1px solid #333;
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+    margin: 0 auto 50px;       /* Centrado horizontal y margen inferior */
+}
+
+.header-lista {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.header-lista h2 {
+    font-size: 1.8rem;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.subtitulo-naranja {
+    color: #ff6600;
+    font-size: 0.95rem;
+    margin-top: 8px;
+    font-style: italic;
+}
+
+/* ==========================================
+   ESTILOS PARA LA TABLA (RESPONSIVA)
+   ========================================== */
+.tabla-responsiva {
+    overflow-x: auto;         /* Permite scroll lateral en móviles */
+    margin-bottom: 25px;
+    border-radius: 8px;
+    background-color: #161616;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    color: #cccccc;
+    text-align: left;
+    min-width: 600px;         /* Evita que la tabla se comprima demasiado */
+}
+
+th, td {
+    padding: 18px 15px;
+    border-bottom: 1px solid #2a2a2a;
+}
+
+th {
+    background-color: #1e1e1e; 
+    color: #ffffff;            
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    border-bottom: 2px solid #ff6600; 
+}
+
+tr:hover {
+    background-color: #222222; /* Resalta la fila al pasar el mouse */
+    transition: background 0.2s;
+}
+
+/* ==========================================
+   ETIQUETAS DE ESTADO (BADGES)
+   ========================================== */
+.badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: inline-block;
+}
+
+.badge-activo { 
+    background-color: rgba(46, 204, 113, 0.15); 
+    color: #2ecc71; 
+    border: 1px solid #2ecc71;
+}
+
+.badge-reparacion { 
+    background-color: rgba(243, 156, 18, 0.15); 
+    color: #f39c12; 
+    border: 1px solid #f39c12;
+}
+
+.badge-inactivo { 
+    background-color: rgba(231, 76, 60, 0.15); 
+    color: #e74c3c; 
+    border: 1px solid #e74c3c;
+}
+
+/* ==========================================
+   BOTONES DE ACCIÓN DENTRO DE LA TABLA
+   ========================================== */
+.btn-accion {
+    padding: 8px 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.75rem;
+    font-weight: bold;
+    margin-right: 5px;
+    transition: 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-cita { 
+    background-color: #ff6600; 
+    color: white; 
+}
+
+.btn-cita:hover {
+    background-color: #e65c00;
+    transform: translateY(-2px);
+}
+
+.btn-borrar { 
+    background-color: transparent; 
+    color: #e74c3c; 
+    border: 1px solid #e74c3c; 
+}
+
+.btn-borrar:hover { 
+    background-color: #e74c3c; 
+    color: white; 
+}
+
+/* ==========================================
+   ACCIONES INFERIORES (BOTONES PRINCIPALES)
+   ========================================== */
+.acciones-inferiores {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;            
+    margin-top: 35px;
+    gap: 20px;
+}
+
+.cta-button {
+    background-color: #ff6600;
+    color: white;
+    padding: 0 25px; 
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+    display: flex;          
+    align-items: center;
+    justify-content: center;
+    height: 48px;          
+    box-sizing: border-box; 
+    flex: 1;                /* Crecen por igual si es necesario */
+    max-width: 250px;
+}
+
+.cta-button:hover {
+    background-color: #e65c00;
+    box-shadow: 0 4px 15px rgba(255, 102, 0, 0.3);
+}
+
+.btn-retroceder {
+    background-color: transparent;
+    color: #ffffff;
+    padding: 0 25px; 
+    border: 1px solid #ff6600; 
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: 0.3s;
+    display: flex;          
+    align-items: center;
+    justify-content: center;
+    height: 48px;          
+    box-sizing: border-box; 
+    max-width: 200px;
+}
+
+.btn-retroceder:hover {
+    background-color: #ff6600;
+    color: white;
+}
+
+/* ==========================================
+   ESTILOS DEL MODAL (CONFIRMACIÓN)
+   ========================================== */
+.modal {
+    display: none; 
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.85);
+    justify-content: center;
+    align-items: center;
+    z-index: 2000; /* Por encima de todo */
+    backdrop-filter: blur(5px);
+}
+
+.contenido-modal {
+    background-color: #1c1c1c;
+    border: 1px solid #ff6600;
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    max-width: 400px;
+    color: white;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+}
+
+.icono-alerta { 
+    font-size: 3.5rem; 
+    margin-bottom: 15px; 
+    color: #f39c12;
+}
+
+.botones-modal {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.btn-secundario { 
+    background-color: #333; 
+    color: white; 
+    border: none; 
+    padding: 12px 25px; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    font-weight: bold;
+}
+
+.btn-peligro { 
+    background-color: #e74c3c; 
+    color: white; 
+    border: none; 
+    padding: 12px 25px; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    font-weight: bold;
+}
+
+/* ==========================================
+   ANIMACIONES
+   ========================================== */
+.fade-in { 
+    animation: fadeIn 0.7s ease-out; 
+}
+
+@keyframes fadeIn { 
+    from { opacity: 0; transform: translateY(30px); } 
+    to { opacity: 1; transform: translateY(0); } 
+}
+
+/* Media Query para Móviles */
+@media (max-width: 600px) {
+    .acciones-inferiores {
+        flex-direction: column;
+    }
+    .cta-button, .btn-retroceder {
+        max-width: 100%;
+        width: 100%;
+    }
+    .contenedor-lista {
+        padding: 20px;
+    }
+}

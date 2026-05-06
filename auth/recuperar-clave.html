@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperar Contraseña | Taller José Gregorio</title>
+    <link rel="stylesheet" href="../css/login.css">
+    <style>
+
+        /* ── Pasos ── */
+        .paso { display: none; }
+        .paso.activo { display: block; animation: fadeIn 0.4s ease-out; }
+
+        /* ── Indicador de puntos ── */
+        .indicador-pasos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 28px;
+        }
+        .punto-paso {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background-color: #3a3a3a;
+            border: 2px solid #555;
+            transition: background 0.3s, border-color 0.3s, transform 0.2s;
+        }
+        .punto-paso.activo {
+            background-color: #ff6600;
+            border-color: #ff6600;
+            transform: scale(1.25);
+        }
+        .punto-paso.completado {
+            background-color: #28a745;
+            border-color: #28a745;
+        }
+
+        /* ── Título de cada paso ── */
+        .titulo-paso {
+            color: #ff6600;
+            font-size: 0.95rem;
+            font-weight: bold;
+            margin-bottom: 22px;
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+
+        /* ── Título principal en naranja ── */
+        .formulario-estilizado h2 {
+            color: #ff6600;
+        }
+
+        /* ── Pregunta de seguridad (paso 2) ── */
+        .pregunta-seguridad {
+            background-color: #1a1a1a;
+            border-left: 3px solid #ff6600;
+            border-radius: 6px;
+            padding: 12px 16px;
+            margin-bottom: 16px;
+            color: #ffffff;
+            font-weight: bold;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        /* ── Botón principal mejorado ── */
+        .btn-recuperar {
+            width: 100%;
+            padding: 13px;
+            background: linear-gradient(135deg, #ff6600, #e65c00);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            letter-spacing: 0.5px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 15px rgba(255, 102, 0, 0.3);
+        }
+        .btn-recuperar:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 102, 0, 0.45);
+        }
+        .btn-recuperar:active {
+            transform: translateY(0);
+        }
+
+        /* ── Enlace "Volver" estilizado ── */
+        .btn-volver {
+            display: block;
+            text-align: center;
+            margin-top: 14px;
+            color: #888;
+            text-decoration: none;
+            font-size: 0.88rem;
+            transition: color 0.2s;
+        }
+        .btn-volver:hover { color: #ff6600; text-decoration: underline; }
+
+        /* ── Mensajes de error ── */
+        .mensaje-error {
+            color: #ff4444;
+            font-size: 0.83rem;
+            margin-top: 7px;
+            display: none;
+            padding: 6px 10px;
+            background: rgba(255, 68, 68, 0.08);
+            border-radius: 4px;
+        }
+        .mensaje-error.visible { display: block; }
+
+        /* ── Requisitos de contraseña ── */
+        .requisitos-clave {
+            font-size: 0.8rem;
+            margin-top: 8px;
+            line-height: 1.9;
+        }
+        .req { color: #555; transition: color 0.2s; }
+        .req.ok   { color: #28a745; }
+        .req.fail { color: #ff4444; }
+
+        /* ── Input con ojito ── */
+        .input-con-ojo {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        .input-con-ojo input {
+            width: 100%;
+            padding-right: 42px;
+            box-sizing: border-box;
+        }
+        .btn-ojo {
+            position: absolute;
+            right: 12px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #888;
+            font-size: 1.1rem;
+            padding: 0;
+            line-height: 1;
+            transition: color 0.2s;
+        }
+        .btn-ojo:hover { color: #ff6600; }
+
+        /* ── Separador de acciones ── */
+        .acciones-paso {
+            margin-top: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="contenedor-login fade-in">
+    <div class="formulario-estilizado">
+
+        <div class="header-form">
+            <img src="../galeria/logo.png" alt="Logo José Gregorio" class="logo-login">
+            <h2>Recuperar Contraseña</h2>
+        </div>
+
+        <!-- Indicador de pasos -->
+        <div class="indicador-pasos">
+            <div class="punto-paso activo" id="punto1"></div>
+            <div class="punto-paso"        id="punto2"></div>
+            <div class="punto-paso"        id="punto3"></div>
+        </div>
+
+        <!-- ══════════════════════════════════
+             PASO 1 — Ingresar Cédula
+        ══════════════════════════════════ -->
+        <div class="paso activo" id="paso1">
+            <p class="titulo-paso">Paso 1 — Ingresa tu cédula</p>
+
+            <div class="grupo-input">
+                <label for="cedulaRecuperar">Número de Cédula</label>
+                <input type="text" id="cedulaRecuperar" maxlength="9" placeholder="Ej: 26734609" autocomplete="off">
+                <span class="mensaje-error" id="errorCedula"></span>
+            </div>
+
+            <div class="acciones-paso">
+                <button type="button" class="btn-recuperar" id="btnVerificarCedula">Continuar →</button>
+                <a href="login.html" class="btn-volver">← Volver al Login</a>
+            </div>
+        </div>
+
+        <!-- ══════════════════════════════════
+             PASO 2 — Pregunta de Seguridad
+        ══════════════════════════════════ -->
+        <div class="paso" id="paso2">
+            <p class="titulo-paso">Paso 2 — Responde tu pregunta de seguridad</p>
+
+            <!-- La pregunta se muestra aquí, en blanco y negritas -->
+            <div class="pregunta-seguridad" id="textoPregunta"></div>
+
+            <div class="grupo-input">
+                <label for="respuestaSeguridad">Tu respuesta</label>
+                <input type="text" id="respuestaSeguridad" placeholder="Escribe tu respuesta aquí..." autocomplete="off">
+                <span class="mensaje-error" id="errorRespuesta"></span>
+            </div>
+
+            <div class="acciones-paso">
+                <button type="button" class="btn-recuperar" id="btnVerificarRespuesta">Verificar Respuesta →</button>
+            </div>
+        </div>
+
+        <!-- ══════════════════════════════════
+             PASO 3 — Nueva Contraseña
+        ══════════════════════════════════ -->
+        <div class="paso" id="paso3">
+            <p class="titulo-paso">Paso 3 — Crea tu nueva contraseña</p>
+
+            <div class="grupo-input">
+                <label for="nuevaClave">Nueva Contraseña</label>
+                <div class="input-con-ojo">
+                    <input type="password" id="nuevaClave" placeholder="Mínimo 8 caracteres">
+                    <button type="button" class="btn-ojo" id="ojoClave" title="Mostrar/ocultar contraseña">👁</button>
+                </div>
+                <div class="requisitos-clave">
+                    <div class="req" id="req-longitud">✗  Mínimo 8 caracteres</div>
+                    <div class="req" id="req-mayuscula">✗  Al menos 1 letra mayúscula</div>
+                    <div class="req" id="req-numero">✗  Al menos 1 número</div>
+                    <div class="req" id="req-especial">✗  Al menos 1 carácter especial (@, #, !, etc.)</div>
+                </div>
+            </div>
+
+            <div class="grupo-input">
+                <label for="confirmarClave">Confirmar Nueva Contraseña</label>
+                <div class="input-con-ojo">
+                    <input type="password" id="confirmarClave" placeholder="Repite tu contraseña">
+                    <button type="button" class="btn-ojo" id="ojoConfirmar" title="Mostrar/ocultar contraseña">👁</button>
+                </div>
+                <span class="mensaje-error" id="errorClaveConfirm">Las contraseñas no coinciden.</span>
+            </div>
+
+            <div class="acciones-paso">
+                <button type="button" class="btn-recuperar" id="btnGuardarClave">Guardar Contraseña ✓</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="../js/recuperar-clave.js"></script>
+</body>
+</html>

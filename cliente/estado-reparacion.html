@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estado de mi Reparación | Taller José Gregorio</title>
+    
+    <!-- CORRECCIÓN DE RUTAS: Salimos de /cliente/ para buscar /css/ -->
+    <link rel="stylesheet" href="../css/style.css"> 
+    <link rel="stylesheet" href="../css/estilos-generales.css"> 
+    <link rel="stylesheet" href="../css/estado-reparacion.css">
+</head>
+<body class="bg-dark-global">
+
+    <!-- Contenedores para el menú dinámico -->
+    <div id="header-dinamico"></div>
+    <div id="sidebar-dinamico"></div>
+
+    <div class="dashboard-wrapper">
+        <main class="main-content">
+            <div class="container-fluid">
+                
+                <header class="seccion-header">
+                    <a href="../index.html" class="btn-volver">
+                        <span>←</span> Volver al Inicio
+                    </a>
+                    <h1 class="titulo-naranja">Estado de mi Reparación</h1>
+                    <p>Consulta el avance real y las notas del mecánico sobre tu vehículo.</p>
+                </header>
+
+                <div class="separador-naranja"></div>
+
+                <div id="contenedor-cards" class="grid-reparaciones">
+                    <div class="cargando">
+                        <p>Buscando reparaciones activas...</p>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts con rutas corregidas -->
+    <script src="../js/menu-desplegable.js"></script>
+    <script src="../js/estado-reparacion.js"></script>
+</body>
+</html>

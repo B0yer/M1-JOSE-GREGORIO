@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Citas | José Gregorio C.A</title>
+    <!-- Mantenemos tus fuentes y estilos base -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../admin-css/gestionar-citas.css">
+</head>
+<body class="bg-dark-global">
+
+    <!-- Bloques dinámicos que ya tenías -->
+    <div id="header-dinamico"></div>
+    <div id="sidebar-dinamico"></div>
+
+    <main class="contenedor-admin-centrado">
+        <header class="header-seccion-admin">
+            <h1 class="titulo-naranja">Panel de Control de Citas</h1>
+            <p>Administra las solicitudes, reparaciones activas y el historial del taller.</p>
+        </header>
+
+        <!-- BARRA DE BÚSQUEDA Y FILTROS -->
+        <div class="controles-gestion">
+            <div class="buscador-citas">
+                <input type="text" id="inputBusqueda" placeholder="Buscar por nombre o cédula...">
+            </div>
+            <div class="filtros-estados">
+                <button class="btn-filtro activo" data-estado="Pendiente">Pendientes</button>
+                <button class="btn-filtro" data-estado="Aceptada">En Curso</button>
+                <button class="btn-filtro" data-estado="Finalizada">Finalizadas</button>
+            </div>
+        </div>
+
+        <!-- Contenedor donde el JS inyecta las tarjetas -->
+        <div id="contenedor-citas" class="grid-admin-citas">
+            <!-- Cargando dinámicamente... -->
+        </div>
+    </main>
+
+    <!-- =======================================================
+         NUEVO MODAL DE GESTIÓN (REDISEÑADO Y PROFESIONAL)
+         ======================================================= -->
+    <div id="modalGestion" class="modal-admin">
+        <div class="modal-contenido-remodelado">
+            <div class="modal-header-pro">
+                <h3><i class="fas fa-tools"></i> GESTIONAR REPARACIÓN</h3>
+                <span class="cerrar-modal" onclick="cerrarModal()">&times;</span>
+            </div>
+            
+            <form id="formGestion">
+                <!-- Campo oculto necesario para que el JS sepa qué cita editar -->
+                <input type="hidden" id="edit-id">
+                <!-- Campo oculto: guarda el historial acumulado completo -->
+                <input type="hidden" id="edit-historial-completo">
+
+                <!-- Referencia visual del historial previo (solo lectura) -->
+                <div id="historial-referencia" style="
+                    background: #111;
+                    border: 1px solid #2a2a2a;
+                    border-radius: 6px;
+                    padding: 10px 15px;
+                    margin-bottom: 20px;
+                    max-height: 120px;
+                    overflow-y: auto;
+                    text-align: left;
+                "></div>
+                
+                <div class="grupo-input-pro">
+                    <label>Detalle de Reparación (¿Qué se le está haciendo?):</label>
+                    <textarea id="edit-detalle" placeholder="Ej: Cambio de aceite, filtros y revisión de frenos traseros..." required></textarea>
+                </div>
+
+                <div class="grupo-input-pro">
+                    <label>Estado actual (Paso a paso para el cliente):</label>
+                    <input type="text" id="edit-estado-texto" placeholder="Ej: Vehículo en fosa, drenando aceite viejo..." required>
+                </div>
+
+                <div class="row-inputs-pro">
+                    <div class="grupo-input-pro half">
+                        <label>Progreso (%):</label>
+                        <div class="input-con-icono">
+                            <input type="number" id="edit-progreso" min="0" max="100" required>
+                            <span class="icono-input">%</span>
+                        </div>
+                    </div>
+                    <div class="grupo-input-pro half">
+                        <label>Fecha Estimada de Entrega:</label>
+                        <input type="date" id="edit-fecha-entrega">
+                    </div>
+                </div>
+
+                <div class="modal-footer-pro">
+                    <button type="button" class="btn-cancelar" onclick="cerrarModal()">CANCELAR</button>
+                    <!-- Este botón ahora activa el segundo modal de contraseña -->
+                    <button type="button" class="btn-guardar-principal" onclick="solicitarConfirmacion()">
+                        <i class="fas fa-save"></i> GUARDAR CAMBIOS
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- =======================================================
+         MODAL DE SEGURIDAD (CONFIRMACIÓN POR CONTRASEÑA)
+         ======================================================= -->
+    <div id="modalConfirmar" class="modal-admin modal-seguridad" style="display: none;">
+        <div class="modal-contenido-seguridad">
+            <div class="icono-seguridad">
+                <i class="fas fa-shield-alt"></i>
+            </div>
+            <h3>Verificación de Identidad</h3>
+            <p>Se requiere tu contraseña para autorizar los cambios en esta reparación.</p>
+            
+            <div class="grupo-input-pro input-seguro">
+                <input type="password" id="passConfirmacion" placeholder="Ingresa tu clave de acceso" required>
+            </div>
+            
+            <p id="errorAuth" class="text-error" style="display:none; color: #ff4444; margin-bottom: 15px;">
+                ⚠️ Contraseña incorrecta. Acceso denegado.
+            </p>
+
+            <div class="acciones-seguridad">
+                <button type="button" class="btn-confirmar-seg" onclick="confirmarYGuardar()">
+                    AUTORIZAR Y GUARDAR
+                </button>
+                <button type="button" class="btn-cancelar-seg" onclick="cerrarModalConfirmar()">
+                    VOLVER
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- jsPDF para generación de constancias -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <!-- Tus scripts originales intactos -->
+    <script src="../js/menu-desplegable.js"></script>
+    <script src="../admin-js/gestionar-citas.js"></script>
+</body>
+</html>

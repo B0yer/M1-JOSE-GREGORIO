@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios Automotriz José Gregorio | Taller Mecánico</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/css/imbox.css">
+</head>
+<body>
+
+    <div id="header-dinamico"></div>
+    <div id="sidebar-dinamico"></div>
+
+    <section class="hero">
+        <h1>Excelencia técnica, confianza en movimiento.</h1>
+        <p>Se ofrece agenda de citas en línea y seguimiento de reparaciones en tiempo real.</p>
+        <a href="javascript:void(0)" onclick="gestionarSolicitudCita()" class="cta-button">Solicitar Cita Ahora</a>
+    </section>
+
+    <section id="servicios">
+        <h2>Nuestros Servicios Especializados</h2>
+        <div class="servicios-grid">
+            <div class="card" onclick="abrirServicio('revision')">
+                <span class="card-icono">🔍</span>
+                <h3>Revisión</h3>
+                <p>Diagnóstico y Preventivo</p>
+            </div>
+            <div class="card" onclick="abrirServicio('mecanica-ligera')">
+                <span class="card-icono">🔧</span>
+                <h3>Mecánica Ligera</h3>
+                <p>Mantenimiento Rápido</p>
+            </div>
+            <div class="card" onclick="abrirServicio('entonacion')">
+                <span class="card-icono">⚡</span>
+                <h3>Entonación</h3>
+                <p>Optimización de Desempeño</p>
+            </div>
+            <div class="card" onclick="abrirServicio('mecanica-pesada')">
+                <span class="card-icono">⚙️</span>
+                <h3>Mecánica Pesada</h3>
+                <p>Trabajos de Motor y Mayor</p>
+            </div>
+        </div>
+    </section>
+
+    <div id="modalServicio" class="modal">
+        <div class="modal-contenido">
+            <div id="detalle-servicio"></div>
+        </div>
+    </div>
+
+    <section class="seccion-beneficios">
+        <div class="titulo-seccion">
+            <h2>¿POR QUÉ ELEGIR <span class="resaltado-rojo">JOSE GREGORIO C.A.</span>?</h2>
+        </div>
+        <div class="layout-beneficios">
+            <div class="columna-imagen">
+                <img src="galeria/trabajador.png" alt="Especialista José Gregorio" class="imagen-trabajador">
+            </div>
+            <div class="contenedor-tarjetas">
+                <div class="tarjeta-beneficio">
+                    <h3>Diagnóstico de Precisión</h3>
+                    <p>Se utiliza tecnología de vanguardia para identificar requerimientos exactos, optimizando tiempo y costos para el cliente.</p>
+                </div>
+                <div class="tarjeta-beneficio">
+                    <h3>Compromiso de Calidad</h3>
+                    <p>Cada repuesto y proceso técnico cumple con los estándares más exigentes del sector automotriz nacional.</p>
+                </div>
+                <div class="tarjeta-beneficio">
+                    <h3>Transparencia Total</h3>
+                    <p>Se entregan informes detallados de cada intervención; el usuario mantiene siempre el control sobre su inversión.</p>
+                </div>
+                <div class="tarjeta-beneficio">
+                    <h3>Atención Especializada</h3>
+                    <p>El equipo no solo repara vehículos, sino que garantiza la seguridad y tranquilidad de los conductores en cada kilómetro.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-pro">
+        <div class="footer-grid">
+
+            <div class="footer-marca">
+                <h2>JOSE GREGORIO<small>C.A.</small></h2>
+                <span class="footer-rif">RIF: J-40766703-3</span>
+                <p>Taller automotriz de confianza en Maracay, Edo. Aragua. Ofrecemos diagnóstico, mantenimiento y reparación con los más altos estándares del sector.</p>
+                <a href="https://drive.google.com/file/d/1Ud7KOgKv_gsIKNzwh_nV1qUDwIX3JGu7/view?usp=drive_link" target="_blank" class="footer-manual-link">
+                    <i class="fas fa-book-open"></i> Manual de Usuario
+                </a>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contacto</h4>
+                <div class="footer-contacto-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:sajosegregorio@gmail.com">sajosegregorio@gmail.com</a>
+                </div>
+                <div class="footer-contacto-item">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>
+                        <a href="https://wa.me/584243436722" target="_blank">0424-343-6722</a><br>
+                        <a href="https://wa.me/584227770870" target="_blank">0422-777-0870</a><br>
+                        <a href="https://wa.me/584145103247" target="_blank">0414-510-3247</a>
+                    </span>
+                </div>
+                <div class="footer-redes">
+                    <a href="https://www.instagram.com/sajosegregorio0" target="_blank" class="footer-red-link">
+                        <i class="fab fa-instagram"></i> sajosegregorio0
+                    </a>
+                    <a href="https://www.instagram.com/lavadoyservicioscp86" target="_blank" class="footer-red-link">
+                        <i class="fab fa-instagram"></i> lavadoyservicioscp86
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>Ubicación</h4>
+                <div class="footer-mapa-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>
+                        <strong>La Cooperativa,</strong><br>
+                        Calle el Deleite N°35 #03<br>
+                        Maracay, Edo. Aragua
+                    </p>
+                    <div class="footer-horario">
+                        Lunes a Viernes &nbsp;|&nbsp; <span>8:00 AM – 5:00 PM</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Taller Mecánico José Gregorio C.A. &mdash; Todos los derechos reservados.</p>
+            <span>RIF: J-40766703-3</span>
+        </div>
+    </footer>
+
+    <script src="js/menu-desplegable.js"></script>
+    <script src="js/logic.js"></script>
+</body>
+</html>

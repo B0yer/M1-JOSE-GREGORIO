@@ -1,0 +1,130 @@
+/* admin-css/usuarios.css */
+
+.contenedor-admin-centrado {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 120px 20px 40px;
+    text-align: center;
+    color: white;
+}
+
+.header-seccion-admin { margin-bottom: 30px; }
+
+.titulo-naranja {
+    color: #ff6600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    font-size: 2.5rem;
+}
+
+.header-seccion-admin p { color: #888; font-size: 1.1rem; }
+
+.controles-gestion {
+    display: flex;
+    justify-content: center;
+    margin: 40px 0;
+}
+
+.buscador-citas input {
+    background: #1c1c1c;
+    border: 1px solid #333;
+    padding: 12px 20px;
+    color: white;
+    border-radius: 5px;
+    width: 400px;
+    outline: none;
+    transition: 0.3s;
+    text-align: center;
+}
+
+.buscador-citas input:focus {
+    border-color: #ff6600;
+    box-shadow: 0 0 10px rgba(255, 102, 0, 0.2);
+}
+
+.tabla-container {
+    background: #1c1c1c;
+    border: 1px solid #333;
+    border-radius: 12px;
+    overflow-x: auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    min-width: 900px;
+}
+
+thead {
+    background-color: #111;
+    border-bottom: 2px solid #ff6600;
+}
+
+th {
+    color: #ff6600;
+    padding: 20px;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
+td {
+    padding: 18px 20px;
+    border-bottom: 1px solid #2a2a2a;
+    color: #ccc;
+    font-size: 0.95rem;
+}
+
+/* Grupo de Acciones */
+.acciones-flex {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+}
+
+/* Botones genéricos */
+.btn-accion {
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    transition: 0.3s;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.btn-historial {
+    background: transparent;
+    border: 1px solid #ff6600;
+    color: #ff6600;
+}
+
+.btn-historial:hover { background: #ff6600; color: #000; }
+
+.btn-whatsapp {
+    background: #25D366;
+    color: white;
+    text-decoration: none; /* Asegura que el link no tenga subrayado */
+}
+
+.btn-whatsapp:hover { background: #128C7E; transform: scale(1.05); }
+
+.btn-eliminar {
+    background: transparent;
+    color: #ff4444;
+    border: 1px solid #ff4444;
+}
+
+.btn-eliminar:hover { background: #ff4444; color: white; }
+
+@media (max-width: 768px) {
+    .titulo-naranja { font-size: 1.8rem; }
+    .buscador-citas input { width: 100%; }
+}

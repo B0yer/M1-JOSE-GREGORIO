@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Vehículo | Taller José Gregorio</title>
+    
+    <!-- PASO 2: Estilos movidos al head para carga correcta -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/registrar-vehiculo.css">
+</head>
+<body>
+
+    <!-- Ganchos para el menú dinámico -->
+    <div id="header-dinamico"></div>
+    <div id="sidebar-dinamico"></div>
+
+    <div class="contenedor-formulario fade-in">
+        <form id="formVehiculo" class="formulario-estilizado">
+            
+            <div class="header-form">
+                <img src="../galeria/logo.png" alt="Logo José Gregorio" class="logo-formulario">
+                <h2>Registrar Vehículo</h2>
+                <p class="subtitulo-naranja">Asocia un carro a tu cuenta</p>
+            </div>
+
+            <div class="grupo-input">
+                <label for="placa">Placa del Vehículo</label>
+                <input type="text" id="placa" placeholder="Ej: AA123BB" required style="text-transform: uppercase;">
+            </div>
+
+            <div class="grupo-input">
+                <label for="marca">Marca</label>
+                <input type="text" id="marca" placeholder="Ej: Toyota, Chevrolet, Ford" required>
+            </div>
+
+            <div class="grupo-input">
+                <label for="modelo">Modelo</label>
+                <input type="text" id="modelo" placeholder="Ej: Corolla, Aveo, Fiesta" required>
+            </div>
+
+            <div class="grupo-input">
+                <label for="anno">Año</label>
+                <input type="number" id="anno" placeholder="Ej: 2012" min="1950" max="2027" required>
+            </div>
+
+            <div class="acciones-formulario">
+                <button type="submit" class="cta-button">Guardar Vehículo</button>
+                <a href="../index.html" class="btn-retroceder">Volver al Inicio</a>
+            </div>
+
+        </form>
+    </div>
+
+    <!-- SCRIPTS ORGANIZADOS -->
+    <!-- 1. Generador del menú -->
+    <script src="../js/menu-desplegable.js"></script>
+    <!-- 2. Lógica de apertura/cierre (hamburguesa) -->
+    <script src="../js/logic.js"></script>
+    <!-- 3. Lógica específica de esta página -->
+    <script src="../js/registrar-vehiculo.js"></script>
+</body>
+</html>

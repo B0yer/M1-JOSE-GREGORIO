@@ -1,0 +1,286 @@
+/* =========================================
+   AUDITORÍA — Estilos (Solo Superusuario)
+   ========================================= */
+
+.tabla-container {
+    border-top: 3px solid #ff6600;
+    overflow-x: auto;
+}
+
+#cuerpoAuditoria tr:hover {
+    background: rgba(255, 102, 0, 0.05);
+}
+
+.header-seccion-admin h1 {
+    color: #ff6600;
+}
+
+/* ─── Panel de filtros ─────────────────── */
+.filtros-auditoria {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 102, 0, 0.25);
+    border-radius: 10px;
+    padding: 20px 24px 12px;
+    margin-bottom: 24px;
+}
+
+.filtros-fila {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: flex-end;
+}
+
+.filtro-grupo {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+    min-width: 160px;
+}
+
+.filtro-grupo label {
+    font-size: 0.78rem;
+    color: #ff6600;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.input-filtro {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 6px;
+    color: #e0e0e0;
+    padding: 9px 12px;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.input-filtro:focus {
+    border-color: #ff6600;
+}
+
+.input-filtro option {
+    background: #1a1a2e;
+}
+
+/* ─── Botones de filtro ────────────────── */
+.filtro-botones {
+    flex-direction: row;
+    gap: 10px;
+    min-width: auto;
+    flex: 0 0 auto;
+}
+
+.btn-filtrar,
+.btn-limpiar {
+    padding: 9px 18px;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s, transform 0.1s;
+    white-space: nowrap;
+}
+
+.btn-filtrar {
+    background: #ff6600;
+    color: #fff;
+}
+
+.btn-limpiar {
+    background: rgba(255, 255, 255, 0.08);
+    color: #ccc;
+    border: 1px solid rgba(255,255,255,0.15);
+}
+
+.btn-filtrar:hover { opacity: 0.85; }
+.btn-limpiar:hover { background: rgba(255, 255, 255, 0.14); }
+.btn-filtrar:active, .btn-limpiar:active { transform: scale(0.97); }
+
+/* ─── Contador de resultados ───────────── */
+.resultados-info {
+    margin-top: 12px;
+}
+
+.contador-badge {
+    display: inline-block;
+    background: rgba(255, 102, 0, 0.12);
+    color: #ff6600;
+    border: 1px solid rgba(255, 102, 0, 0.3);
+    border-radius: 20px;
+    padding: 3px 14px;
+    font-size: 0.82rem;
+    font-weight: 600;
+}
+
+/* ─── Tabla ────────────────────────────── */
+.tabla-container table {
+    width: 100%;
+    min-width: 700px;
+}
+
+.fila-auditoria td {
+    vertical-align: middle;
+    padding: 12px 14px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.celda-fecha {
+    white-space: nowrap;
+}
+
+.fecha-dia {
+    display: block;
+    font-weight: 600;
+    color: #e0e0e0;
+    font-size: 0.9rem;
+}
+
+.fecha-hora {
+    display: block;
+    color: #888;
+    font-size: 0.78rem;
+}
+
+.celda-detalles {
+    font-size: 0.85rem;
+    color: #bbb;
+    max-width: 300px;
+    word-break: break-word;
+}
+
+.celda-responsable {
+    min-width: 140px;
+    word-break: break-word;
+}
+
+.celda-afectado {
+    min-width: 130px;
+    word-break: break-word;
+}
+
+/* ─── Badges de tipo ───────────────────── */
+.badge-tipo {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    margin-bottom: 4px;
+    white-space: nowrap;
+}
+
+.accion-texto {
+    font-size: 0.88rem;
+    color: #ddd;
+    margin-top: 2px;
+}
+
+/* ─── Franjas laterales por tipo ───────── */
+.fila-tipo-usuario {
+    border-left: 3px solid rgba(255, 68, 68, 0.5);
+}
+
+.fila-tipo-sistema {
+    border-left: 3px solid rgba(0, 204, 136, 0.4);
+}
+
+.fila-tipo-cita {
+    border-left: 3px solid rgba(255, 102, 0, 0.5);
+}
+
+/* ─── Responsive: Tablet (≤ 900px) ─────── */
+@media (max-width: 900px) {
+    .filtros-fila {
+        gap: 12px;
+    }
+
+    .filtro-grupo {
+        min-width: 140px;
+    }
+
+    .celda-detalles {
+        max-width: 200px;
+    }
+}
+
+/* ─── Responsive: Móvil (≤ 640px) ──────── */
+@media (max-width: 640px) {
+    .filtros-auditoria {
+        padding: 16px 14px 10px;
+    }
+
+    .filtros-fila {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .filtro-grupo {
+        min-width: 100%;
+        flex: unset;
+    }
+
+    .filtro-botones {
+        flex-direction: row;
+        width: 100%;
+        gap: 10px;
+    }
+
+    .btn-filtrar,
+    .btn-limpiar {
+        flex: 1;
+        text-align: center;
+    }
+
+    .tabla-container {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .tabla-container table {
+        min-width: 620px;
+    }
+
+    .fila-auditoria td {
+        padding: 10px 10px;
+        font-size: 0.82rem;
+    }
+
+    .celda-detalles {
+        max-width: 160px;
+    }
+
+    .header-seccion-admin h1 {
+        font-size: 1.4rem;
+    }
+
+    .header-seccion-admin p {
+        font-size: 0.85rem;
+    }
+}
+
+/* ─── Responsive: Muy pequeño (≤ 420px) ── */
+@media (max-width: 420px) {
+    .badge-tipo {
+        font-size: 0.68rem;
+        padding: 2px 7px;
+    }
+
+    .accion-texto {
+        font-size: 0.8rem;
+    }
+
+    .fecha-dia {
+        font-size: 0.82rem;
+    }
+}

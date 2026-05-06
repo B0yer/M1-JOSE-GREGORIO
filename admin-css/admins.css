@@ -1,0 +1,137 @@
+/* admin-css/admins.css */
+
+/* ── Badges de rol ── */
+.badge-rol {
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.badge-rol.rol-admin        { background: #0099ff; color: white; }
+.badge-rol.rol-superusuario { background: #ff6600; color: white; }
+.badge-rol.rol-cliente      { background: #444;    color: #ccc;  }
+
+/* ── Botón cambiar rol ── */
+.btn-edit {
+    background: transparent;
+    border: 1px solid #0099ff;
+    color: #0099ff;
+    padding: 7px 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 0.82rem;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-edit:hover {
+    background: #0099ff;
+    color: #fff;
+}
+
+/* ── Modal overlay ── */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.78);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.modal-box {
+    background: #1c1c1c;
+    border: 1px solid #333;
+    border-radius: 14px;
+    padding: 38px 44px;
+    text-align: center;
+    width: 360px;
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.75);
+    animation: fadeInModal 0.2s ease;
+}
+
+@keyframes fadeInModal {
+    from { opacity: 0; transform: scale(0.95); }
+    to   { opacity: 1; transform: scale(1); }
+}
+
+/* ── Opciones de rol ── */
+.opciones-rol {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.btn-rol {
+    background: transparent;
+    padding: 13px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 0.88rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.25s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+/* Cliente → gris */
+.btn-rol-cliente {
+    border: 1px solid #666;
+    color: #aaa;
+}
+.btn-rol-cliente:hover {
+    background: #444;
+    color: #fff;
+    border-color: #888;
+}
+
+/* Admin → azul */
+.btn-rol-admin {
+    border: 1px solid #0099ff;
+    color: #0099ff;
+}
+.btn-rol-admin:hover {
+    background: #0099ff;
+    color: #fff;
+}
+
+/* Superusuario → naranja */
+.btn-rol-super {
+    border: 1px solid #ff6600;
+    color: #ff6600;
+}
+.btn-rol-super:hover {
+    background: #ff6600;
+    color: #fff;
+}
+
+/* ── Botón cancelar ── */
+.btn-cancelar-modal {
+    background: transparent;
+    border: 1px solid #444;
+    color: #777;
+    padding: 10px 28px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: 0.25s;
+}
+
+.btn-cancelar-modal:hover {
+    border-color: #ff4444;
+    color: #ff4444;
+}

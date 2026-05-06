@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Usuarios | José Gregorio C.A</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css"> 
+    <link rel="stylesheet" href="../admin-css/usuarios.css">
+</head>
+<body class="bg-dark-global">
+
+    <div id="header-dinamico"></div>
+    <div id="sidebar-dinamico"></div>
+
+    <main class="contenedor-admin-centrado">
+        <header class="header-seccion-admin">
+            <h1 class="titulo-naranja">Panel de Clientes</h1>
+            <p>Supervise la actividad de los usuarios, contacte vía WhatsApp o gestione su historial.</p>
+        </header>
+
+        <div class="controles-gestion">
+            <div class="buscador-citas">
+                <input type="text" id="inputBusqueda" placeholder="Nombre, Cédula o Correo...">
+            </div>
+        </div>
+
+        <section class="tabla-container">
+            <table id="tablaUsuarios">
+                <thead>
+                    <tr>
+                        <th>Cédula</th>
+                        <th>Cliente</th>
+                        <th>Correo</th>
+                        <th>Teléfono</th>
+                        <th style="text-align: center;">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="cuerpoTabla">
+                    <!-- JS cargará los datos aquí -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <script src="../js/menu-desplegable.js"></script>
+    <script src="../admin-js/usuarios.js"></script>
+</body>
+</html>

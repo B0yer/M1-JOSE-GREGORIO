@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administradores | José Gregorio C.A</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../admin-css/usuarios.css">
+    <link rel="stylesheet" href="../admin-css/admins.css">
+</head>
+<body class="bg-dark-global">
+    <div id="header-dinamico"></div>
+    <div id="sidebar-dinamico"></div>
+
+    <main class="contenedor-admin-centrado">
+        <header class="header-seccion-admin">
+            <h1 class="titulo-naranja">Panel de Administradores</h1>
+            <p>Gestión de personal administrativo y niveles de acceso.</p>
+        </header>
+
+        <section class="tabla-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Cédula</th>
+                        <th>Nombre</th>
+                        <th>Correo</th>
+                        <th>Rol Actual</th>
+                        <th style="text-align: center;">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="cuerpoTablaAdmins">
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <!-- Modal Cambiar Rol -->
+    <div id="modalRol" class="modal-overlay" style="display:none;">
+        <div class="modal-box">
+            <h2 class="titulo-naranja" style="font-size:1.4rem; margin-bottom:8px;">Cambiar Rol</h2>
+            <p id="modalNombreAdmin" style="color:#aaa; margin-bottom:24px; font-size:0.95rem;"></p>
+            <div class="opciones-rol">
+                <button class="btn-rol btn-rol-cliente" onclick="confirmarRol('cliente')">
+                    <i class="fas fa-user"></i> Cliente
+                </button>
+                <button class="btn-rol btn-rol-admin" onclick="confirmarRol('admin')">
+                    <i class="fas fa-user-tie"></i> Admin
+                </button>
+                <button class="btn-rol btn-rol-super" onclick="confirmarRol('superusuario')">
+                    <i class="fas fa-user-shield"></i> Superusuario
+                </button>
+            </div>
+            <button class="btn-cancelar-modal" onclick="cerrarModal()">Cancelar</button>
+        </div>
+    </div>
+
+    <script src="../js/menu-desplegable.js"></script>
+    <script src="../admin-js/admins.js"></script>
+</body>
+</html>

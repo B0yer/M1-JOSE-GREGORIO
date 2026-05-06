@@ -1,0 +1,210 @@
+/* ==========================================================================
+   INBOX / NOTIFICACIONES FLOTANTE — JOSE GREGORIO C.A.
+   Archivo: css/imbox.css
+   ========================================================================== */
+
+/* ── Grupo izquierdo: hamburguesa + campana ──────────────────────────────── */
+.navbar-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* ── Wrapper de la campana (posición relativa para el badge) ─────────────── */
+.inbox-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* ── Botón campana ───────────────────────────────────────────────────────── */
+.inbox-btn {
+    position: relative;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #cccccc;
+    font-size: 1.2rem;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.25s, background 0.25s;
+    flex-shrink: 0;
+    line-height: 1;
+}
+
+.inbox-btn:hover {
+    color: #ff6600;
+    background: rgba(255, 102, 0, 0.1);
+}
+
+/* ── Badge rojo de conteo ────────────────────────────────────────────────── */
+.inbox-badge {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    background: #cc0000;
+    color: #fff;
+    font-size: 0.58rem;
+    font-weight: 700;
+    min-width: 15px;
+    height: 15px;
+    border-radius: 8px;
+    padding: 0 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    pointer-events: none;
+    box-shadow: 0 0 0 2px #1c1c1c;
+    animation: inbox-pulse 2s infinite;
+}
+
+@keyframes inbox-pulse {
+    0%, 100% { transform: scale(1); }
+    50%       { transform: scale(1.2); }
+}
+
+/* ── Panel flotante — ANCLADO AL BODY con position:fixed ────────────────── */
+/*
+   Al estar en el body y usar position:fixed, el panel nunca es tapado
+   por overflow:hidden ni z-index de elementos padre del navbar.
+   La posición top/left se calcula en JS con getBoundingClientRect().
+*/
+.inbox-panel {
+    position: fixed;
+    width: 340px;
+    max-height: 460px;
+    background: #1c1c1c;
+    border: 1px solid #2a2a2a;
+    border-radius: 14px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.8);
+    z-index: 99999;          /* máximo z-index, por encima de todo */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+    /* Oculto por defecto */
+    opacity: 0;
+    transform: translateY(-6px) scale(0.97);
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.inbox-panel--open {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+}
+
+/* ── Cabecera del panel ──────────────────────────────────────────────────── */
+.inbox-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 13px 18px;
+    background: #161616;
+    border-bottom: 1px solid #2a2a2a;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #ff6600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    flex-shrink: 0;
+}
+
+.inbox-mark-all {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #555;
+    font-size: 0.9rem;
+    padding: 4px 6px;
+    border-radius: 6px;
+    transition: color 0.2s, background 0.2s;
+}
+.inbox-mark-all:hover {
+    color: #ff6600;
+    background: rgba(255, 102, 0, 0.1);
+}
+
+/* ── Lista de notificaciones ─────────────────────────────────────────────── */
+.inbox-lista {
+    list-style: none;
+    overflow-y: auto;
+    flex: 1;
+    padding: 6px 0;
+    margin: 0;
+    scrollbar-width: thin;
+    scrollbar-color: #ff6600 transparent;
+}
+.inbox-lista::-webkit-scrollbar { width: 4px; }
+.inbox-lista::-webkit-scrollbar-thumb { background: #ff6600; border-radius: 4px; }
+
+/* ── Estado vacío ────────────────────────────────────────────────────────── */
+.inbox-vacio {
+    text-align: center;
+    color: #444;
+    font-size: 0.82rem;
+    padding: 40px 20px;
+    line-height: 2.2;
+}
+
+/* ── Ítem individual ─────────────────────────────────────────────────────── */
+.inbox-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 18px;
+    border-bottom: 1px solid #222;
+    position: relative;
+    transition: background 0.2s;
+    cursor: default;
+}
+.inbox-item:last-child { border-bottom: none; }
+.inbox-item:hover { background: #222; }
+.inbox-item:not(.inbox-item--leida) { background: #1e1e1e; }
+.inbox-item--leida { opacity: 0.5; }
+
+.inbox-item-icono {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    line-height: 1;
+    margin-top: 2px;
+}
+
+.inbox-item-cuerpo { flex: 1; min-width: 0; }
+
+.inbox-item-texto {
+    color: #ddd;
+    font-size: 0.81rem;
+    line-height: 1.5;
+    margin: 0 0 4px;
+    word-break: break-word;
+}
+
+.inbox-item-fecha {
+    color: #555;
+    font-size: 0.71rem;
+}
+
+/* Punto rojo "no leída" */
+.inbox-punto {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 7px;
+    height: 7px;
+    background: #cc0000;
+    border-radius: 50%;
+}
+
+/* ── Responsive ──────────────────────────────────────────────────────────── */
+@media (max-width: 600px) {
+    .inbox-panel {
+        width: calc(100vw - 24px);
+    }
+}

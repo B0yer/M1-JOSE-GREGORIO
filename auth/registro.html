@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro | Taller José Gregorio</title>
+    <link rel="stylesheet" href="../css/registro.css">
+</head>
+<body>
+
+<div class="contenedor-registro fade-in">
+    <form id="formRegistro" class="formulario-estilizado">
+        <h2>Registro de Usuario</h2>
+        
+        <div class="grid-formulario">
+            <!-- ── Datos Personales ── -->
+            <div class="seccion-form">
+                <h3>👤 Datos Personales</h3>
+
+                <!-- Tipo de documento (solo visual, no se guarda) -->
+                <div class="grupo-input">
+                    <label>Tipo de Documento</label>
+                    <select id="tipoDocumento">
+                        <option value="V">Cédula (V)</option>
+                        <option value="E">Cédula Extranjera (E)</option>
+                        <option value="J">RIF (J)</option>
+                    </select>
+                </div>
+
+                <!-- Documento / Cédula -->
+                <div class="grupo-input">
+                    <label>Número de Documento</label>
+                    <input type="text" id="cedula" maxlength="9"
+                           placeholder="Ej: 26734609" required>
+                    <!-- Mensaje de error inline para cédula duplicada -->
+                    <span class="msg-error" id="errorCedula"></span>
+                </div>
+
+                <div class="grupo-input">
+                    <label>Nombre</label>
+                    <!-- 50 caracteres: nombre propio razonable -->
+                    <input type="text" id="nombre" maxlength="50" required>
+                </div>
+
+                <div class="grupo-input">
+                    <label>Apellido</label>
+                    <!-- 50 caracteres: apellido razonable -->
+                    <input type="text" id="apellido" maxlength="50" required>
+                </div>
+
+                <div class="grupo-input">
+                    <label>Teléfono</label>
+                    <!-- 11 dígitos fijos, ya existía -->
+                    <input type="text" id="telefono" maxlength="11"
+                           placeholder="04121234567" required>
+                </div>
+            </div>
+
+            <!-- ── Seguridad ── -->
+            <div class="seccion-form">
+                <h3>🔒 Seguridad</h3>
+
+                <div class="grupo-input">
+                    <label>Correo Electrónico</label>
+                    <!-- 100 caracteres: límite estándar de correo -->
+                    <input type="email" id="correo" maxlength="100" required>
+                </div>
+
+                <div class="grupo-input">
+                    <label>Confirmar Correo</label>
+                    <input type="email" id="correoConfirm" maxlength="100" required>
+                </div>
+
+                <div class="grupo-input">
+                    <label>Contraseña</label>
+                    <!-- 64 caracteres: seguro sin ser excesivo -->
+                    <div class="input-con-ojo">
+                        <input type="password" id="inputClave" maxlength="64" required>
+                        <button type="button" class="btn-ojo" data-target="inputClave">👁</button>
+                    </div>
+                </div>
+
+                <div class="grupo-input">
+                    <label>Confirmar Contraseña</label>
+                    <div class="input-con-ojo">
+                        <input type="password" id="inputClaveConfirm" maxlength="64" required>
+                        <button type="button" class="btn-ojo" data-target="inputClaveConfirm">👁</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ── Preguntas de Seguridad ── -->
+        <div class="seccion-recuperacion">
+            <h3>🔑 Preguntas de Seguridad</h3>
+            <div class="grid-formulario">
+
+                <!-- Pregunta 1: opciones preestablecidas -->
+                <div>
+                    <label>Pregunta 1 (seleccione una opción)</label>
+                    <select id="pregunta1" required>
+                        <option value="" disabled selected>Seleccione una pregunta...</option>
+                        <option value="¿Cuál es el nombre de su primera mascota?">¿Cuál es el nombre de su primera mascota?</option>
+                        <option value="¿En qué ciudad nació su madre?">¿En qué ciudad nació su madre?</option>
+                        <option value="¿Cuál es el nombre de su escuela primaria?">¿Cuál es el nombre de su escuela primaria?</option>
+                        <option value="¿Cuál fue su apodo de infancia?">¿Cuál fue su apodo de infancia?</option>
+                    </select>
+                    <!-- 80 caracteres: respuesta corta descriptiva -->
+                    <input type="text" id="respuesta1" maxlength="80"
+                           placeholder="Su respuesta a la pregunta 1"
+                           required style="margin-top: 10px;">
+                </div>
+
+                <!-- Pregunta 2: el cliente escribe su pregunta -->
+                <div>
+                    <label>Pregunta 2 (escriba su propia pregunta)</label>
+                    <!-- 120 caracteres: suficiente para formular una pregunta -->
+                    <input type="text" id="pregunta2" maxlength="120"
+                           placeholder="Ej: ¿Cuál es el modelo de mi primer carro?"
+                           required>
+                    <input type="text" id="respuesta2" maxlength="80"
+                           placeholder="Su respuesta a la pregunta 2"
+                           required style="margin-top: 10px;">
+                </div>
+
+            </div>
+        </div>
+
+        <div class="acciones">
+            <button type="submit" class="cta-button">Finalizar Registro</button>
+            <a href="../index.html" class="enlace-volver">Volver al inicio</a>
+        </div>
+    </form>
+</div>
+
+<script src="../js/registro-validador.js"></script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historial de Servicios | Taller José Gregorio</title>
+    <link rel="stylesheet" href="../css/style.css"> 
+    <link rel="stylesheet" href="../css/historial.css">
+</head>
+<body class="bg-dark-global">
+
+    <!-- Contenedores para el menú dinámico -->
+    <div id="header-dinamico"></div>
+    <div id="sidebar-dinamico"></div>
+
+    <div class="dashboard-wrapper">
+        <div class="container-dashboard">
+            
+            <header class="seccion-header">
+                <h1 class="titulo-naranja">Historial de Servicios</h1>
+                <p class="subtitulo">Revisa el expediente técnico y las bitácoras pasadas de tus vehículos.</p>
+                <div class="separador-naranja"></div>
+            </header>
+
+            <!-- Barra de búsqueda -->
+            <div class="buscador-container">
+                <div class="search-box">
+                    <input type="text" id="input-buscar" class="input-busqueda" 
+                           placeholder="Buscar por servicio, placa o fecha...">
+                </div>
+            </div>
+
+            <!-- Contenedor de tarjetas -->
+            <div id="contenedor-historial" class="grid-reparaciones">
+                <div class="cargando">
+                    <p>Cargando historial de servicios...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts en orden de dependencia -->
+    <script src="../js/menu-desplegable.js"></script>
+    <script src="../js/logic.js"></script>
+    <script src="../js/historial.js"></script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!-- auth/login.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión | Taller José Gregorio</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/login.css">
+</head>
+<body>
+
+    <div class="contenedor-login fade-in">
+        <form id="formLogin" class="formulario-estilizado">
+            
+            <div class="header-form">
+                <img src="../galeria/logo.png" alt="Logo José Gregorio" class="logo-login">
+                <h2>Iniciar Sesión</h2>
+                <p class="subtitulo-naranja">Bienvenido de nuevo</p>
+            </div>
+
+            <div class="grupo-input">
+                <label for="correo">Correo Electrónico</label>
+                <input type="email" id="correo" placeholder="Ej: usuario@correo.com" required>
+            </div>
+
+            <div class="grupo-input">
+                <label for="clave">Contraseña</label>
+                <input type="password" id="clave" placeholder="Introduce tu contraseña" required>
+            </div>
+
+            <div class="acciones-login">
+                <button type="submit" class="cta-button">Ingresar</button>
+                <a href="../index.html" class="btn-retroceder">Volver al Inicio</a>
+            </div>
+
+            <div class="footer-form">
+                <p>¿No tienes una cuenta? <a href="registro.html">Regístrate aquí</a></p>
+                <p><a href="recuperar-clave.html" class="link-recuperar">¿Olvidaste tu contraseña? Recupérala aquí</a></p>
+            </div>
+
+        </form>
+    </div>
+
+    <script src="../js/login.js"></script>
+</body>
+</html>

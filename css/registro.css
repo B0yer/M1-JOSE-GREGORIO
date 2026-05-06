@@ -1,0 +1,191 @@
+/* css/registro.css */
+
+/* ── Generales ── */
+body {
+    background-color: #0d0d0d;
+    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+.contenedor-registro {
+    background: #1c1c1c;
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid #333;
+    max-width: 900px;
+    margin: 30px auto;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+}
+
+h2 {
+    color: #ff6600;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+h3 {
+    color: #ff6600;
+    border-bottom: 1px solid #333;
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+
+.instruccion {
+    text-align: center;
+    color: #888;
+    margin-bottom: 30px;
+}
+
+/* ── Grid ── */
+.grid-formulario {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+.seccion-recuperacion {
+    background: #252525;
+    padding: 25px;
+    border-radius: 15px;
+    margin-top: 20px;
+    border: 1px dashed #444;
+}
+
+/* ── Inputs y Selects ── */
+.grupo-input {
+    margin-bottom: 20px;
+}
+
+.grupo-input label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: #cccccc;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    background: #121212;
+    border: 1px solid #444;
+    border-radius: 8px;
+    color: #ffffff;
+    box-sizing: border-box;
+    transition: border 0.3s ease;
+    font-size: 0.95rem;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: #ff6600;
+}
+
+/* ── Ojito: input + botón ── */
+.input-con-ojo {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-con-ojo input {
+    padding-right: 44px; /* espacio para el botón */
+}
+
+.btn-ojo {
+    position: absolute;
+    right: 12px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #888;
+    font-size: 1.1rem;
+    padding: 0;
+    line-height: 1;
+    transition: color 0.2s;
+    /* que no herede el width 100% de input */
+    width: auto;
+}
+
+.btn-ojo:hover {
+    color: #ff6600;
+}
+
+/* ── Mensaje de error inline ── */
+.msg-error {
+    display: none;
+    color: #ff4444;
+    font-size: 0.82rem;
+    margin-top: 6px;
+    padding: 5px 10px;
+    background: rgba(255, 68, 68, 0.08);
+    border-radius: 4px;
+}
+
+.msg-error.visible {
+    display: block;
+}
+
+/* ── Botones y Acciones ── */
+.acciones {
+    text-align: center;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.cta-button {
+    background: #ff6600;
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.3s;
+    width: 100%;
+    max-width: 300px;
+}
+
+.cta-button:hover {
+    background: #e65c00;
+    transform: scale(1.05);
+}
+
+.enlace-volver {
+    color: #888;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.enlace-volver:hover {
+    color: #ff6600;
+    text-decoration: underline;
+}
+
+/* ── Animación entrada ── */
+.fade-in {
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Responsivo ── */
+@media (max-width: 768px) {
+    .grid-formulario {
+        grid-template-columns: 1fr;
+    }
+    .contenedor-registro {
+        padding: 20px;
+    }
+}

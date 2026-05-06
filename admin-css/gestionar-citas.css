@@ -1,0 +1,382 @@
+/* admin-css/gestionar-citas.css */
+
+.contenedor-admin-centrado {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 120px 20px 40px;
+    text-align: center;
+    color: white;
+}
+
+.titulo-naranja {
+    color: #ff6600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    font-size: 2.5rem;
+}
+
+/* BARRA DE CONTROLES (Buscador y Filtros) */
+.controles-gestion {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 40px 0;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.buscador-citas input {
+    background: #1c1c1c;
+    border: 1px solid #333;
+    padding: 12px 20px;
+    color: white;
+    border-radius: 5px;
+    width: 300px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.buscador-citas input:focus {
+    border-color: #ff6600;
+}
+
+.filtros-estados {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-filtro {
+    background: #1c1c1c;
+    color: #fff;
+    border: 1px solid #333;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-filtro.activo, .btn-filtro:hover {
+    background: #ff6600;
+    border-color: #ff6600;
+    color: #000;
+}
+
+/* GRID DE TARJETAS */
+.grid-admin-citas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.card-cita-admin {
+    background: #1c1c1c;
+    border: 1px solid #333;
+    border-radius: 12px;
+    padding: 25px;
+    text-align: left;
+    position: relative;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.card-cita-admin:hover {
+    transform: translateY(-5px);
+    border-color: #ff6600;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #333;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+.status-badge {
+    font-size: 10px;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.badge-pendiente { background: #ffcc00; color: #000; }
+.badge-aceptada { background: #25d366; color: #000; }
+.badge-finalizada { background: #007bff; color: #fff; }
+.badge-entregado { background: linear-gradient(135deg, #00b36b, #00ff88); color: #000; }
+
+/* ESTILO DE BOTONES EN TARJETAS */
+.acciones-card button {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-aceptar { background: #25d366; color: #000; }
+.btn-gestionar { background: #ff6600; color: #fff; }
+.btn-finalizar { background: #007bff; color: #fff; }
+.btn-rechazar { background: #cc0000; color: #fff; }
+
+/* BOTÓN VEHÍCULO ENTREGADO */
+.btn-entregar {
+    background: linear-gradient(135deg, #00b36b, #00ff88);
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    letter-spacing: 0.5px;
+    box-shadow: 0 0 12px rgba(0, 255, 136, 0.25);
+}
+
+.btn-entregar:hover {
+    background: linear-gradient(135deg, #00ff88, #00b36b);
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
+    transform: translateY(-1px);
+}
+
+/* =======================================================
+   ESTILOS NUEVOS: MODALES PROFESIONALES Y SEGURIDAD
+   ======================================================= */
+
+.modal-admin {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0; top: 0; width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(5px);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-contenido-remodelado {
+    background: #181818;
+    width: 95%;
+    max-width: 600px;
+    border-radius: 12px;
+    border: 1px solid #ff6600;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    overflow: hidden;
+    animation: slideIn 0.3s ease-out;
+}
+
+.modal-header-pro {
+    background: #111;
+    padding: 20px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #333;
+}
+
+.modal-header-pro h3 {
+    color: #ff6600;
+    margin: 0;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cerrar-modal {
+    color: #888;
+    font-size: 28px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.cerrar-modal:hover { color: #fff; }
+
+#formGestion { padding: 25px; } /* base, overridden below */
+
+.grupo-input-pro { margin-bottom: 20px; text-align: left; }
+
+.grupo-input-pro label {
+    display: block;
+    color: #ccc;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.grupo-input-pro input, 
+.grupo-input-pro textarea {
+    width: 100%;
+    background: #111;
+    border: 1px solid #333;
+    color: #fff;
+    padding: 12px 15px;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: 0.3s;
+    box-sizing: border-box;
+}
+
+.grupo-input-pro textarea { height: 100px; resize: none; }
+
+.grupo-input-pro input:focus, 
+.grupo-input-pro textarea:focus {
+    border-color: #ff6600;
+    outline: none;
+    background: #000;
+}
+
+.row-inputs-pro { display: flex; gap: 20px; }
+.half { flex: 1; }
+
+.input-con-icono { position: relative; }
+.icono-input {
+    position: absolute;
+    right: 15px; top: 50%;
+    transform: translateY(-50%);
+    color: #666;
+    font-weight: bold;
+}
+
+.modal-footer-pro {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 10px;
+    border-top: 1px solid #333;
+    padding-top: 20px;
+}
+
+.btn-guardar-principal {
+    background: #ff6600;
+    color: #000;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-guardar-principal:hover { background: #ff8533; }
+
+/* MODAL SEGURIDAD */
+.modal-contenido-seguridad {
+    background: #181818;
+    width: 90%;
+    max-width: 400px;
+    border-radius: 12px;
+    border: 1px solid #ff4444;
+    padding: 30px;
+    text-align: center;
+    animation: zoomIn 0.3s ease-out;
+}
+
+.icono-seguridad { font-size: 3rem; color: #ff4444; margin-bottom: 15px; }
+
+.input-seguro input {
+    text-align: center;
+    letter-spacing: 2px;
+    font-size: 1.2rem;
+    border-color: #444;
+}
+
+.btn-confirmar-seg {
+    background: #ff4444;
+    color: white;
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.btn-cancelar-seg {
+    background: transparent;
+    color: #888;
+    border: 1px solid #333;
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+@keyframes slideIn { from { transform: translateY(-30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+@keyframes zoomIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+/* =======================================================
+   FIX: MODAL POSICIONADO BAJO EL HEADER + SCROLL
+   ======================================================= */
+
+.modal-admin {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 70px;
+    width: 100%;
+    height: calc(100% - 70px);
+    background-color: rgba(0, 0, 0, 0.88);
+    backdrop-filter: blur(6px);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.modal-contenido-remodelado {
+    background: #181818;
+    width: 95%;
+    max-width: 600px;
+    max-height: calc(100vh - 110px);
+    border-radius: 12px;
+    border: 1px solid #ff6600;
+    box-shadow: 0 10px 40px rgba(255, 102, 0, 0.15);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    animation: slideIn 0.3s ease-out;
+}
+
+#formGestion {
+    overflow-y: auto;
+    flex: 1;
+    padding: 25px;
+    scrollbar-width: thin;
+    scrollbar-color: #ff6600 #111;
+}
+
+#formGestion::-webkit-scrollbar { width: 5px; }
+#formGestion::-webkit-scrollbar-track { background: #111; }
+#formGestion::-webkit-scrollbar-thumb { background: #ff6600; border-radius: 3px; }
+
+/* BOTÓN CANCELAR MEJORADO */
+.btn-cancelar {
+    background: transparent;
+    color: #ccc;
+    border: 1px solid #555;
+    padding: 12px 25px;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: 0.3s;
+    letter-spacing: 0.5px;
+}
+
+.btn-cancelar:hover {
+    background: #2a2a2a;
+    border-color: #888;
+    color: #fff;
+}

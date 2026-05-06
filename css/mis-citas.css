@@ -1,0 +1,247 @@
+/* css/mis-citas.css */
+
+/* ==========================================
+   CONFIGURACIÓN GLOBAL Y CUERPO (BODY)
+   ========================================== */
+body {
+    background-color: #121212;
+    margin: 0;                 /* Elimina espacio de los bordes */
+    padding: 0;                /* Elimina espacio interno original */
+    font-family: Arial, sans-serif;
+    color: white;
+    padding-top: 120px;        /* Espacio para que el header fijo no tape el contenido */
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+/* ==========================================
+   CONTENEDOR PRINCIPAL
+   ========================================== */
+.contenedor-citas {
+    width: 90%;
+    max-width: 1100px;
+    background-color: #1c1c1c;
+    border: 1px solid #333;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    margin: 0 auto 50px;       /* Centrado horizontal con margen abajo */
+}
+
+.header-citas {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.subtitulo-naranja {
+    color: #ff6600;
+    font-size: 1.1rem;
+    margin-top: 5px;
+}
+
+/* ==========================================
+   GRID: FORMULARIO Y HISTORIAL
+   ========================================== */
+.grid-citas {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 30px;
+    align-items: start;
+}
+
+/* Al bajar de 850px se pone una columna arriba de otra */
+@media (max-width: 850px) {
+    .grid-citas {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ==========================================
+   BLOQUES DE CONTENIDO
+   ========================================== */
+.bloque-formulario, .bloque-historial {
+    background-color: #262626;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #3a3a3a;
+}
+
+h3 {
+    margin-top: 0;
+    color: #ffffff;
+    border-bottom: 1px solid #444;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+/* ==========================================
+   FORMULARIO ESTILIZADO
+   ========================================== */
+.formulario-estilizado .grupo-input {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.grupo-input label {
+    font-size: 0.85rem;
+    color: #aaa;
+    margin-bottom: 5px;
+}
+
+.grupo-input input, 
+.grupo-input select, 
+.grupo-input textarea {
+    background-color: #1a1a1a;
+    border: 1px solid #444;
+    border-radius: 5px;
+    padding: 10px;
+    color: white;
+    font-size: 0.9rem;
+    transition: 0.3s;
+    box-sizing: border-box;
+}
+
+.grupo-input input:focus, 
+.grupo-input select:focus, 
+.grupo-input textarea:focus {
+    border-color: #ff6600;
+    outline: none;
+    box-shadow: 0 0 5px rgba(255, 102, 0, 0.3);
+}
+
+/* ==========================================
+   TABLA DE HISTORIAL
+   ========================================== */
+.tabla-responsiva {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 0.9rem;
+}
+
+th, td {
+    padding: 12px 10px;
+    border-bottom: 1px solid #3a3a3a;
+}
+
+th {
+    color: #ff6600;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+}
+
+tr:hover td {
+    background-color: #2c2c2c;
+}
+
+/* ==========================================
+   BOTONES Y ACCIONES
+   ========================================== */
+.btn-completo {
+    width: 100%;
+}
+
+.cta-button {
+    background-color: #ff6600;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background 0.3s;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.cta-button:hover {
+    background-color: #e65c00;
+}
+
+.acciones-inferiores {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.btn-retroceder {
+    background-color: transparent;
+    color: #ffffff;
+    padding: 12px 20px;
+    border: 1px solid #ff6600;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: 0.3s;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.btn-retroceder:hover {
+    background-color: #ff6600;
+    color: white;
+}
+
+/* ==========================================
+   NUEVO: ESTILOS DE ESTADOS DE CITAS
+   ========================================== */
+.status-badge {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    min-width: 90px;
+}
+
+/* Pendiente -> Amarillo */
+.badge-pendiente {
+    background-color: rgba(255, 193, 7, 0.15);
+    color: #ffc107;
+    border: 1px solid #ffc107;
+}
+
+/* Aceptada -> Azul */
+.badge-aceptada {
+    background-color: rgba(0, 188, 255, 0.15);
+    color: #00bcff;
+    border: 1px solid #00bcff;
+}
+
+/* Rechazada -> Rojo */
+.badge-rechazada {
+    background-color: rgba(244, 67, 54, 0.15);
+    color: #f44336;
+    border: 1px solid #f44336;
+}
+
+/* Finalizada -> Verde */
+.badge-finalizada {
+    background-color: rgba(76, 175, 80, 0.15);
+    color: #4caf50;
+    border: 1px solid #4caf50;
+}
+
+/* Estado por defecto o carga */
+.badge-defecto {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    border: 1px solid #ffffff;
+}

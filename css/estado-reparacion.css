@@ -1,0 +1,262 @@
+/* ============================================================
+   ESTILOS UNIFICADOS - MÓDULO ESTADO REPARACIÓN
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+
+body {
+    background-color: #0f0f0f;
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* --- CABECERA --- */
+.seccion-header {
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.titulo-naranja {
+    color: #ff6600 !important;
+    font-size: 2.8rem;
+    font-weight: 800;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+}
+
+.seccion-header p {
+    color: #888;
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+/* --- BOTÓN VOLVER --- */
+.btn-volver {
+    display: inline-flex;
+    align-items: center;
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    background: #1e1e1e;
+    padding: 10px 18px;
+    border-radius: 8px;
+    border: 1px solid #333;
+    width: fit-content;
+}
+
+.btn-volver span {
+    margin-right: 10px;
+    font-size: 1.2rem;
+    color: #ff6600;
+}
+
+.btn-volver:hover {
+    background: #252525;
+    transform: translateX(-5px);
+}
+
+.separador-naranja {
+    height: 4px;
+    width: 80px;
+    background: #ff6600;
+    margin-bottom: 50px;
+    border-radius: 2px;
+}
+
+/* --- CARD DE REPARACIÓN --- */
+.card-reparacion {
+    background: #181818;
+    border: 1px solid #282828;
+    border-radius: 15px;
+    padding: 35px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+    width: 100%;
+    max-width: 1100px;
+    box-sizing: border-box;
+    margin-bottom: 30px;
+}
+
+.card-header h3 {
+    margin: 0;
+    font-size: 1.8rem;
+    color: #fff;
+}
+
+.placa-tag {
+    display: inline-block;
+    background: rgba(255, 102, 0, 0.1);
+    color: #ff6600;
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-top: 12px;
+    border: 1px solid rgba(255, 102, 0, 0.3);
+}
+
+/* --- PROGRESO --- */
+.progreso-info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 35px;
+    margin-bottom: 12px;
+}
+
+.estado-texto {
+    color: #ff6600;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.porcentaje-texto {
+    font-weight: 800;
+    font-size: 1.1rem;
+}
+
+.progress-container {
+    background: #262626;
+    height: 12px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    background: linear-gradient(90deg, #ff6600, #ff8c33);
+    height: 100%;
+    transition: width 1s ease-in-out;
+}
+
+/* --- BITÁCORA (TIMELINE) --- */
+.detalles-box {
+    background: #1e1e1e;
+    padding: 25px;
+    border-radius: 12px;
+    border-left: 5px solid #ff6600;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.detalles-box > span {
+    color: #666;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.historial-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.nota-registro {
+    position: relative;
+    padding-left: 20px;
+    border-left: 2px solid #333;
+}
+
+.nota-registro::before {
+    content: '';
+    position: absolute;
+    left: -6px;
+    top: 5px;
+    width: 10px;
+    height: 10px;
+    background: #444;
+    border-radius: 50%;
+}
+
+.nota-fecha {
+    display: block;
+    font-size: 0.7rem;
+    color: #ff6600;
+    font-weight: 700;
+    margin-bottom: 3px;
+}
+
+.nota-texto {
+    margin: 0;
+    color: #fff;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Estilo para el paso más reciente */
+.nota-registro:last-child {
+    border-left-color: #ff6600;
+}
+
+.nota-registro:last-child::before {
+    background: #ff6600;
+    box-shadow: 0 0 8px rgba(255, 102, 0, 0.5);
+}
+
+.fecha-actualizacion {
+    display: block;
+    text-align: right;
+    color: #444;
+    font-size: 0.75rem;
+    margin-top: 20px;
+    font-weight: 700;
+}
+
+/* --- ESTILOS PARA LA FECHA DE ENTREGA Y CABECERA --- */
+
+.card-header {
+    display: flex;
+    justify-content: space-between; /* Empuja la fecha a la derecha */
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.header-info h3 {
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+.entrega-tag {
+    background: rgba(0, 255, 136, 0.1); /* Fondo verde traslúcido */
+    color: #00ff88; /* Verde neón */
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    border: 1px solid rgba(0, 255, 136, 0.3);
+    box-shadow: 0 0 15px rgba(0, 255, 136, 0.1);
+    white-space: nowrap; /* Evita que se rompa en dos líneas */
+}
+
+.entrega-tag.pendiente {
+    background: #222;
+    color: #666;
+    border-color: #333;
+    box-shadow: none;
+}
+
+/* Ajuste móvil para que no se amontone */
+@media (max-width: 600px) {
+    .card-header {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .entrega-tag {
+        align-self: flex-start;
+    }
+}

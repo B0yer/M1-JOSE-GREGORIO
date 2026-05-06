@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuración de Cuenta - Taller</title>
+    <!-- CSS Global (Menú) y Específico -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/configuracion.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Contenedores inyectados para el menú dinámico -->
+    <div id="header-dinamico"></div>
+    <div id="sidebar-dinamico"></div>
+
+    <!-- Envoltura principal para control de márgenes y centrado -->
+    <div class="main-wrapper">
+        
+        <a href="../index.html" class="btn-volver">
+            <i class="fas fa-arrow-left"></i> Volver al Inicio
+        </a>
+
+        <div class="perfil-card">
+            <h2 class="titulo-naranja"><i class="fas fa-cog"></i> Configuración de Cuenta</h2>
+            <div class="separador-naranja"></div>
+
+            <!-- Información Personal -->
+            <h3 class="subtitulo-naranja"><i class="fas fa-user"></i> Información Personal</h3>
+            <form id="form-perfil">
+                <div class="grid-inputs">
+                    <div class="grupo-input">
+                        <label for="edit-nombre">Nombre</label>
+                        <input type="text" id="edit-nombre" disabled required>
+                    </div>
+                    <div class="grupo-input">
+                        <label for="edit-apellido">Apellido</label>
+                        <input type="text" id="edit-apellido" disabled required>
+                    </div>
+                    <div class="grupo-input">
+                        <label for="edit-telefono">Teléfono</label>
+                        <!-- Validación para solo números y exactamente 11 dígitos -->
+                        <input type="text" id="edit-telefono" pattern="\d{11}" maxlength="11" title="Debe ingresar exactamente 11 números" placeholder="04121234567" disabled required>
+                    </div>
+                    <div class="grupo-input">
+                        <label for="edit-correo">Correo Electrónico</label>
+                        <input type="email" id="edit-correo" disabled required>
+                    </div>
+                    <div class="grupo-input">
+                        <label for="edit-cedula">Cédula</label>
+                        <input type="text" id="edit-cedula" disabled>
+                    </div>
+                </div>
+
+                <!-- Seguridad -->
+                <h3 class="subtitulo-naranja"><i class="fas fa-shield-alt"></i> Seguridad y Acceso</h3>
+                <div class="grid-inputs">
+                    <div class="grupo-input">
+                        <label for="edit-clave">Contraseña</label>
+                        <input type="password" id="edit-clave" value="********" disabled required>
+                    </div>
+                    <div class="grupo-input display-flex-bottom">
+                        <button type="button" id="btn-ver-seguridad" class="btn-gris-oscuro">
+                            <i class="fas fa-eye"></i> Ver Clave y Respuestas
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Preguntas de seguridad -->
+                <div class="grid-inputs" style="margin-top: 20px;">
+                    <div class="grupo-input">
+                        <label>Pregunta de Seguridad 1</label>
+                        <input type="text" id="show-pregunta1" disabled>
+                    </div>
+                    <div class="grupo-input">
+                        <label>Respuesta 1</label>
+                        <input type="password" id="show-respuesta1" value="********" disabled>
+                    </div>
+                    <div class="grupo-input">
+                        <label>Pregunta de Seguridad 2</label>
+                        <input type="text" id="show-pregunta2" disabled>
+                    </div>
+                    <div class="grupo-input">
+                        <label>Respuesta 2</label>
+                        <input type="password" id="show-respuesta2" value="********" disabled>
+                    </div>
+                </div>
+
+                <div class="botones-container">
+                    <button type="button" id="btn-editar" class="btn-gris">
+                        <i class="fas fa-edit"></i> Editar Información
+                    </button>
+                    <!-- Botón de cancelar edición -->
+                    <button type="button" id="btn-cancelar-edicion" class="btn-gris" style="display: none;">
+                        Cancelar
+                    </button>
+                    <button type="submit" id="btn-guardar-main" class="btn-naranja" style="display: none;">
+                        <i class="fas fa-save"></i> Guardar Cambios
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal de Verificación -->
+    <div id="modal-seguridad" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <i class="fas fa-lock"></i>
+                <h3 id="modal-titulo">Verificación Requerida</h3>
+            </div>
+            <p id="modal-desc">Confirma tu contraseña para continuar.</p>
+
+            <div class="campo-modal">
+                <label>Tu Contraseña Actual:</label>
+                <div class="input-password-wrap">
+                    <input type="password" id="confirm-clave" placeholder="••••••••" autocomplete="off">
+                    <button type="button" class="btn-ojo" onclick="togglePass('confirm-clave', this)">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="campo-modal" id="campo-respuesta-seguridad" style="display: none;">
+                <label id="label-pregunta">Pregunta de Seguridad:</label>
+                <input type="text" id="confirm-respuesta" placeholder="Tu respuesta" autocomplete="off">
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" id="btn-cancelar-modal" class="btn-link">Cancelar</button>
+                <button type="button" id="btn-confirmar-final" class="btn-naranja">
+                    <i class="fas fa-check"></i> Verificar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts en orden de ejecución -->
+    <script src="../js/menu-desplegable.js"></script>
+    <script src="../js/logic.js"></script>
+    <script src="../js/configuracion.js"></script>
+</body>
+</html>

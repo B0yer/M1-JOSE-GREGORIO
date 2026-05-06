@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Vehículos | Taller José Gregorio</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/mis-vehiculos.css">
+</head>
+<body>
+
+    <div id="header-dinamico"></div>
+    <div id="sidebar-dinamico"></div>
+
+    <div class="contenedor-lista fade-in">
+        <div class="header-lista">
+            <h2>Mis Vehículos</h2>
+            <p class="subtitulo-naranja">Gestiona los carros asociados a tu cuenta</p>
+        </div>
+
+        <div class="tabla-responsiva">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Placa</th>
+                        <th>Marca / Modelo</th>
+                        <th>Año</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="lista-vehiculos-body">
+                    <tr>
+                        <td colspan="5" style="text-align: center; color: #888;">Cargando tus vehículos...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="acciones-inferiores">
+            <a href="registrar-vehiculo.html" class="cta-button">➕ Agregar Otro Vehículo</a>
+            <a href="../index.html" class="btn-retroceder">Volver al Inicio</a>
+        </div>
+    </div>
+
+    <div id="modal-confirmacion" class="modal">
+        <div class="contenido-modal">
+            <div class="icono-alerta">⚠️</div>
+            <h3>¿Estás seguro?</h3>
+            <p>¿Deseas eliminar el vehículo con placa <strong id="placa-a-borrar"></strong>? Esta acción no se puede deshacer.</p>
+            <div class="botones-modal">
+                <button id="btn-cancelar-borrado" class="btn-secundario">Cancelar</button>
+                <button id="btn-confirmar-borrado" class="btn-peligro">Sí, eliminar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/menu-desplegable.js"></script>
+    <script src="../js/logic.js"></script>
+    <script src="../js/mis-vehiculos.js"></script>
+</body>
+</html>

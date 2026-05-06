@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auditoría de Actividad | José Gregorio C.A</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../admin-css/usuarios.css">
+    <link rel="stylesheet" href="../admin-css/auditoria.css">
+</head>
+<body class="bg-dark-global">
+    <div id="header-dinamico"></div>
+    <div id="sidebar-dinamico"></div>
+
+    <main class="contenedor-admin-centrado">
+        <header class="header-seccion-admin">
+            <h1 class="titulo-naranja">
+                <i class="fas fa-shield-alt"></i> Auditoría de Actividad
+            </h1>
+            <p>Historial de todas las acciones realizadas en el sistema. Solo visible para el Superusuario.</p>
+        </header>
+
+        <!-- PANEL DE FILTROS -->
+        <section class="filtros-auditoria">
+            <div class="filtros-fila">
+                <!-- Búsqueda de texto -->
+                <div class="filtro-grupo">
+                    <label><i class="fas fa-search"></i> Buscar</label>
+                    <input 
+                        type="text" 
+                        id="inputBusqueda" 
+                        placeholder="Nombre, cédula, responsable..."
+                        class="input-filtro"
+                    />
+                </div>
+
+                <!-- Filtro por tipo -->
+                <div class="filtro-grupo">
+                    <label><i class="fas fa-tag"></i> Tipo de evento</label>
+                    <select id="selectTipo" class="input-filtro">
+                        <option value="todos">Todos</option>
+                        <option value="cita">Gestión de citas (Admin)</option>
+                        <option value="cita_aceptada">Citas aceptadas</option>
+                        <option value="cita_rechazada">Citas rechazadas</option>
+                        <option value="cita_finalizada">Citas finalizadas</option>
+                        <option value="cita_entregada">Vehículo entregado</option>
+                        <option value="reparacion_actualizada">Reparaciones actualizadas</option>
+                        <option value="usuario">Usuarios eliminados</option>
+                        <option value="sistema">Sistema (registros y citas nuevas)</option>
+                    </select>
+                </div>
+
+                <!-- Filtro fecha desde -->
+                <div class="filtro-grupo">
+                    <label><i class="fas fa-calendar-alt"></i> Desde</label>
+                    <input type="date" id="fechaDesde" class="input-filtro" />
+                </div>
+
+                <!-- Filtro fecha hasta -->
+                <div class="filtro-grupo">
+                    <label><i class="fas fa-calendar-alt"></i> Hasta</label>
+                    <input type="date" id="fechaHasta" class="input-filtro" />
+                </div>
+
+                <!-- Botones de acción -->
+                <div class="filtro-grupo filtro-botones">
+                    <button id="btnFiltrar" class="btn-filtrar">
+                        <i class="fas fa-filter"></i> Filtrar
+                    </button>
+                    <button id="btnLimpiar" class="btn-limpiar">
+                        <i class="fas fa-times"></i> Limpiar
+                    </button>
+                </div>
+            </div>
+
+            <!-- Contador de resultados -->
+            <div class="resultados-info">
+                <span id="contadorResultados" class="contador-badge">Cargando...</span>
+            </div>
+        </section>
+
+        <!-- TABLA DE AUDITORÍA -->
+        <section class="tabla-container">
+            <table style="border-top: 2px solid #ff6600;" id="tablaAuditoria">
+                <thead>
+                    <tr>
+                        <th><i class="fas fa-clock"></i> Fecha / Hora</th>
+                        <th><i class="fas fa-user-shield"></i> Responsable</th>
+                        <th><i class="fas fa-bolt"></i> Acción</th>
+                        <th><i class="fas fa-info-circle"></i> Detalles</th>
+                        <th><i class="fas fa-user"></i> Usuario Afectado</th>
+                    </tr>
+                </thead>
+                <tbody id="cuerpoAuditoria">
+                    <tr>
+                        <td colspan="5" style="text-align:center; padding: 40px; color: #888;">
+                            <i class="fas fa-spinner fa-spin"></i> Cargando registros...
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <script src="../js/menu-desplegable.js"></script>
+    <script src="../admin-js/auditoria.js"></script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Citas | Taller José Gregorio</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/mis-citas.css">
+</head>
+<body>
+
+    <div id="header-dinamico"></div>
+    <div id="sidebar-dinamico"></div>
+
+    <div class="contenedor-citas fade-in">
+        
+        <div class="header-citas">
+            <h2>Gestión de Citas</h2>
+            <p class="subtitulo-naranja">Solicita un servicio o revisa tus citas activas</p>
+        </div>
+
+        <div class="grid-citas">
+            
+            <div class="bloque-formulario">
+                <h3>Solicitar Nueva Cita</h3>
+                <form id="formNuevaCita" class="formulario-estilizado">
+                    
+                    <div class="grupo-input">
+                        <label for="selectVehiculo">Selecciona tu Vehículo</label>
+                        <select id="selectVehiculo" required>
+                            <option value="" disabled selected>Cargando tus vehículos...</option>
+                        </select>
+                    </div>
+
+                    <div class="grupo-input">
+                        <label for="selectServicio">Tipo de Servicio</label>
+                        <select id="selectServicio" required>
+                            <option value="" disabled selected>Cargando servicios...</option>
+                        </select>
+                    </div>
+
+                    <div class="grupo-input">
+                        <label for="fechaCita">Fecha Deseada</label>
+                        <input type="date" id="fechaCita" required>
+                    </div>
+
+                    <div class="grupo-input">
+                        <label for="horaCita">Hora Deseada</label>
+                        <input type="time" id="horaCita" required>
+                    </div>
+
+                    <div class="grupo-input">
+                        <label for="motivoCita">Motivo o Falla (Breve descripción)</label>
+                        <textarea id="motivoCita" rows="3" placeholder="Ej: Cambio de aceite, sonido extraño en los frenos..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="cta-button btn-completo">Agendar Cita</button>
+                </form>
+            </div>
+
+            <div class="bloque-historial">
+                <h3>Mis Citas Solicitadas</h3>
+                <div class="tabla-responsiva">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Fecha / Hora</th>
+                                <th>Vehículo</th>
+                                <th>Servicio</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody id="lista-citas-body">
+                            <tr>
+                                <td colspan="4" style="text-align: center; color: #888;">
+                                    <span class="status-badge badge-defecto">Cargando tus citas...</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div> 
+
+        <div class="acciones-inferiores">
+            <a href="../index.html" class="btn-retroceder">Volver al Inicio</a>
+        </div>
+
+    </div>
+
+    <script src="../js/menu-desplegable.js"></script>
+    <script src="../js/logic.js"></script>
+    <script src="../js/mis-citas.js"></script>
+</body>
+</html>
