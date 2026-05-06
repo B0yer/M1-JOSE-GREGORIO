@@ -1,6 +1,6 @@
 // js/recuperar-clave.js
 
-const BASE_URL = 'http://127.0.0.1:3000';
+const URL_API = "[https://m1-jose-gregorio-c2pe.vercel.app/api](https://m1-jose-gregorio-c2pe.vercel.app/api)";
 
 // Estado compartido entre pasos
 let cedulaActual    = '';
