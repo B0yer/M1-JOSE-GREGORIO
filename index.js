@@ -1074,6 +1074,7 @@ app.post('/api/admin/entregar-vehiculo', async (req, res) => {
 });
 
 // Para desarrollo local
+// Para desarrollo local (Tu Mac Mini o PC)
 if (process.env.NODE_ENV !== 'production') {
     const PORT = 3000;
     app.listen(PORT, () => {
@@ -1081,5 +1082,5 @@ if (process.env.NODE_ENV !== 'production') {
     });
 }
 
-// CRÍTICO PARA VERCEL:
+// CRÍTICO PARA VERCEL (Siempre fuera de cualquier bloque IF)
 module.exports = app;
